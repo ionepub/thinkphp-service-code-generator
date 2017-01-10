@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ThinkPHP 自动化代码生成工具</title>
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<style type="text/css">
+	.form-horizontal{border: 1px solid #ccc;padding: 30px 0;}
+	</style>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h3>
+				ThinkPHP 自动化代码生成工具
+			</h3>
+			<blockquote>
+				<p>
+					自动生成Action/Service/Dao代码
+				</p> <em>适用版本：ThinkPHP 3.2.3</em>
+			</blockquote>
+			<form class="form-horizontal" action="{$actionUrl}" method="post">
+				<div class="control-group">
+					 <label class="control-label" for="module">模型名称</label>
+					<div class="controls">
+						<input id="module" name="module" type="text" value="Common" />
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;生成的文件路径为&nbsp;<code>APP_PATH/Common/模型名称/</code></span>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="name">* 类名</label>
+					<div class="controls">
+						<input id="name" name="name" type="text" />
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;区分大小写，生成的文件路径为&nbsp;<code>APP_PATH/Common/模型名称/类名Action.class.php</code></span>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="table">* 数据表名</label>
+					<div class="controls">
+						<input id="table" name="table" type="text" />
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;如果配置文件中设置了表前缀，则需忽略表前缀</span>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="author">作者</label>
+					<div class="controls">
+						<input id="author" name="author" type="text" value="Lan"/>
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="author">函数列表</label>
+					<div class="controls">
+						<p class="text-info"><i class="icon-bell"></i>&nbsp;<strong>如果一个都未选，则默认生成的类中只包含构造函数</strong></p>
+						<volist name="funcList" id="vo">
+						<label class="checkbox"><input type="checkbox" name="func[]" value="{$key}" checked="checked" /> {$key}： {$vo}</label>
+						</volist>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						  <button type="submit" class="btn">生成</button>
+					</div>
+				</div>
+			</form>
+			<p class="text-center"><a href="https://github.com/ionepub" target="_blank">GitHub</a> | <a href="https://github.com/ionepub" target="_blank">Issues</a></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
